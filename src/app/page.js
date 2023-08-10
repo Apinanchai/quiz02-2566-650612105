@@ -8,8 +8,6 @@ import { Updock } from "next/font/google";
 import { comments } from "@/libs/comments";
 
 export default function HomePage() {
-  const [userOwners, setuserOwners] = useState(null);
-
   return (
     <div
       style={{ minHeight: "100vh", backgroundColor: "#18191A" }}
@@ -23,16 +21,16 @@ export default function HomePage() {
         {/* Post Owner Example*/}
         {postOwners.map((userOwner) => (
           <PostOwnerComponent
-            username={PostOwner.username}
-            commentText={PostOwner.commentText}
-            likeNum={PostOwner.likeNum}
-            userImagePath={PostOwner.userImg}
-            key={PostOwner.username}
+            username={userOwner.username}
+            commentText={userOwner.commentText}
+            likeNum={userOwner.likeNum}
+            userImagePath={userOwner.userImg}
+            key={userOwner.username}
           />
         ))}
 
         {/* Comment Example */}
-        {UserComments.map((comments) => (
+        {userComments.map((comments) => (
           <Comment
             username={comments.username}
             commentText={comments.commentText}
